@@ -13,7 +13,7 @@ class EntityList
         entities.set(entity.id, entity);
     }
 
-    public function remove(entity:Entity):Void
+    public function remove(entity:Entity):Bool
     {
         if(entityList.remove(entity))
         {
@@ -37,5 +37,10 @@ class EntityList
     public function toArray():Array<Entity>
     {
         return Lambda.array(entityList);
+    }
+
+    public function iterator():Iterator<Entity>
+    {
+        return entities.iterator();
     }
 }

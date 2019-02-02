@@ -1,0 +1,10 @@
+ecs.Component
+ecs.Entity
+ecs.EntityId
+ecs.EntityList
+ecs.Family
+ecs.Signal
+ecs.System
+ecs.World
+
+-js build/ecs.js    # <- Compile the library, in this case to JavaScript
