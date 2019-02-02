@@ -1,0 +1,12 @@
+{
+  "name": "ecs",
+  "url" : "https://github.com/Skroig0010/ecs",
+  "license": "MIT",
+  "tags": ["entity component system"],
+  "description": "ces.jsのパクリ",
+  "version": "0.1.0",
+  "releasenote": "まだ",
+  "contributors": ["gotoh"],
+  "dependencies": {
+  }
+}
