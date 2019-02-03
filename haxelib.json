@@ -4,7 +4,7 @@
   "license": "MIT",
   "tags": ["entity component system"],
   "description": "ces.jsのパクリ",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "releasenote": "まだ",
   "contributors": ["gotoh"],
   "dependencies": {
