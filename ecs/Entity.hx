@@ -18,6 +18,11 @@ class Entity
         return components.exists("$" + componentName);
     }
 
+    public function getComponent(componentName:String):Bool
+    {
+        return components.get(componentName);
+    }
+
     public function addComponent(component:Component):Void
     {
         components.set("$" + component.name, component);
