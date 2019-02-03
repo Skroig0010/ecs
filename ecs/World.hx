@@ -6,6 +6,8 @@ class World
     private var systems = new Array<System>();
     private var entities = new EntityList();
 
+    public function new(){}
+
     public function addSystem(system:System):World
     {
         systems.push(system);
