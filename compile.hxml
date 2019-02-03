@@ -7,4 +7,4 @@ ecs.Signal
 ecs.System
 ecs.World
 
--js build/ecs.js    # <- Compile the library, in this case to JavaScript
+-js build/ecs.js

@@ -18,7 +18,7 @@ class Entity
         return components.exists("$" + componentName);
     }
 
-    public function getComponent(componentName:String):Bool
+    public function getComponent(componentName:String):Component
     {
         return components.get(componentName);
     }
