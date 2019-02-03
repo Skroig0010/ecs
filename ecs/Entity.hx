@@ -5,8 +5,8 @@ class Entity
     private static var entityId:Int = 0;
     public var id(default, null):EntityId;
     private var components:Map<String, Component> = [];
-    public var onComponentAdded:Signal<{entity:Entity, componentName:String}>;
-    public var onComponentRemoved:Signal<{entity:Entity, componentName:String, component:Component}>;
+    public var onComponentAdded = new Signal<{entity:Entity, componentName:String}>();
+    public var onComponentRemoved = new Signal<{entity:Entity, componentName:String, component:Component}>();
 
     public function new()
     {
