@@ -20,7 +20,7 @@ class Entity
 
     public function getComponent(componentName:String):Component
     {
-        return components.get(componentName);
+        return components.get("$" + componentName);
     }
 
     public function addComponent(component:Component):Void
