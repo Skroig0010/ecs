@@ -82,7 +82,7 @@ class World
         return new FamilyId("$" + componentNames.join(","));
     }
 
-    private function onComponentAdded(msg:{entity:Entity, componentName:String}):Void
+    private function onComponentAdded(msg:{entity:Entity, componentName:String, component:Component}):Void
     {
         Lambda.iter(families, (family) -> family.onComponentAdded(msg));
     }

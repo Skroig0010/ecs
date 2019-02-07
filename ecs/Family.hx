@@ -35,7 +35,7 @@ class Family
         }
     }
 
-    public function onComponentAdded(msg:{entity:Entity, componentName:String}):Void
+    public function onComponentAdded(msg:{entity:Entity, componentName:String, component:Component}):Void
     {
         this.addEntityIfMatch(msg.entity);
     }

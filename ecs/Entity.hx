@@ -5,7 +5,7 @@ class Entity
     private static var entityId:Int = 0;
     public var id(default, null):EntityId;
     private var components:Map<String, Component> = [];
-    public var onComponentAdded = new Signal<{entity:Entity, componentName:String}>();
+    public var onComponentAdded = new Signal<{entity:Entity, componentName:String, component:Component}>();
     public var onComponentRemoved = new Signal<{entity:Entity, componentName:String, component:Component}>();
 
     public function new()
@@ -26,7 +26,7 @@ class Entity
     public function addComponent(component:Component):Void
     {
         components.set("$" + component.name, component);
-        onComponentAdded.emit({entity:this, componentName:component.name});
+        onComponentAdded.emit({entity:this, componentName:component.name, component:component});
     }
 
     public function removeComponent(componentName:String):Void
