@@ -1,4 +1,8 @@
 package ecs;
+import haxe.macro.Expr;
+import haxe.macro.Context;
+using haxe.macro.Tools;
+using haxe.macro.TypeTools;
 
 class Entity
 {
@@ -18,9 +22,34 @@ class Entity
         return components.exists("$" + componentName);
     }
 
-    public function getComponent(componentName:String):Component
+    // use getComponent
+    public function getComponent2(componentName:String):Component
     {
         return components.get("$" + componentName);
+    }
+
+    public macro function getComponent(self:Expr, expr:Expr)
+    {
+        var type = Context.getType(expr.toString());
+
+        switch(type)
+        {
+            case TInst(t, param):
+                for(staticField in t.get().statics.get())
+                {
+                    if(staticField.name == "componentName")
+                    {
+                        var componentName = staticField.name;
+                        var compType = type.toComplexType();
+                        return macro {
+                            cast ($self.getComponent2(($expr.$componentName)), $compType);
+                        }
+                    }
+                }
+                return Context.error(type.toString() + " should haxe static field 'componentName'", expr.pos);
+            default:
+                return Context.error(type.toString() + " should be Component Class", expr.pos);
+        }
     }
 
     public function addComponent(component:Component):Void
