@@ -11,7 +11,6 @@ class World
     public function addSystem(system:System):World
     {
         systems.push(system);
-        system.world = this;
         return this;
     }
 
