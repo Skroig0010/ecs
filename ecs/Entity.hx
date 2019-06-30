@@ -12,9 +12,10 @@ class Entity
     public var onComponentAdded = new Signal<{entity:Entity, componentName:String, component:Component}>();
     public var onComponentRemoved = new Signal<{entity:Entity, componentName:String, component:Component}>();
 
-    public function new()
+    public function new(?components:Array<Component>)
     {
         id = new EntityId(entityId++);
+        if(components != null)Lambda.iter(components, addComponent);
     }
 
     public function hasComponent(componentName:String):Bool
