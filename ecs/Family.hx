@@ -47,12 +47,14 @@ class Family
             return;
         }
 
-        componentNames.map((componentName:String) ->
-                if(componentName == msg.componentName)
-                {
-                    entities.remove(msg.entity);
-                    entityRemoved.emit(msg.entity);
-                });
+        for(componentName in componentNames)
+        {
+            if(componentName == msg.componentName)
+            {
+                entities.remove(msg.entity);
+                entityRemoved.emit(msg.entity);
+            };
+        }
     }
 
     private function matchEntity(entity):Bool
